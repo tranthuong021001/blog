@@ -11,4 +11,8 @@ class WelcomeController extends Controller
     public function admin($age){
         return 'hello admin!';
     }
+    public function adminLogin(Request $request){
+        return 'hello '.$request->username;
+    }
+
 }

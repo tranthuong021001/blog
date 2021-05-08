@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-//Route::get('/{id}','WelcomeController@index');
-Route::get('/admin/{age}','WelcomeController@admin')->middleware('checkage');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// //Route::get('/{id}','WelcomeController@index');
+// //Route::get('/admin/{age}','WelcomeController@admin')->middleware('checkage');
+// Route::post('login', 'WelcomeController@adminLogin')->middleware('checkuser'::class);
+
+// //Route::resource phần resource controller
+
+// Route::resource('photos','DemoController');
+// //Route::get('demo1', 'DemoController');
+
+require_once 'fontend.php';
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
